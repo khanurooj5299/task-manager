@@ -1,3 +1,4 @@
+import { getDateString } from "../../utilities";
 import "./TaskList.css";
 
 export default function TaskList({ onUpdate, taskList }) {
@@ -8,14 +9,14 @@ export default function TaskList({ onUpdate, taskList }) {
           <thead>
             <tr>
               <th scope="col">Task</th>
-              <th scope="col">Headline</th>
+              <th scope="col">Deadline</th>
             </tr>
           </thead>
           <tbody>
             {taskList.map((task) => (
               <tr>
                 <td>{task.title}</td>
-                <td>{task.deadline}</td>
+                <td>{getDateString(new Date(task.deadline))}</td>
               </tr>
             ))}
           </tbody>

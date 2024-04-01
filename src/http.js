@@ -10,9 +10,7 @@ export async function getTaskList(setTaskList) {
       throw new Error(res.statusText);
     }
   } catch (err) {
-    console.log(err);
-    //returned promise resolves with empty array
-    return [];
+    throw new Error(err);
   }
 }
 
@@ -30,7 +28,7 @@ export async function addTask(task) {
     }
     throw new Error(res.statusText);
   } catch (err) {
-    console.log(err);
+    throw new Error(err);
   }
 }
 
@@ -48,6 +46,6 @@ export async function updateTask(task) {
     }
     throw new Error(res.statusText);
   } catch (err) {
-    console.log(err);
+    throw new Error(err);
   }
 }

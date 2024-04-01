@@ -5,7 +5,7 @@ import TaskList from "./components/TaskList/TaskList";
 import { Card } from "./components/Card/Card";
 import Header from "./components/Header/Header";
 import { useState, useEffect } from "react";
-import { getTaskList } from "./components/http";
+import { getTaskList } from "./http";
 
 function App() {
   //this state maintains the current taskList
