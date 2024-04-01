@@ -3,11 +3,11 @@ import { getDateString } from "../../utilities";
 import "./AddOrUpdateTask.css";
 
 export default function AddOrUpdateTask({
-  updateId,
-  setUpdateId,
+  toUpdateTask,
+  setToUpdateTask,
   setTaskList,
 }) {
-  const isUpdate = updateId != null;
+  const isUpdate = toUpdateTask != null;
 
   async function handleUpdate() {
     try {
@@ -15,9 +15,9 @@ export default function AddOrUpdateTask({
       const deadline = document.getElementById("task-deadline").value;
       let res;
       if (isUpdate) {
-        res = await updateTask({ title, deadline, updateId });
+        res = await updateTask({ title, deadline, updateId: toUpdateTask._id });
         //if it was update operation reset the UI to add
-        setUpdateId(null);
+        setToUpdateTask(null);
       } else {
         res = await addTask({ title, deadline });
         //if task was succesfully added the api returns the newly created task
@@ -34,7 +34,7 @@ export default function AddOrUpdateTask({
   }
 
   function handleCancel() {
-    setUpdateId(null);
+    setToUpdateTask(null);
     document.getElementById("add-update-form").reset();
   }
 

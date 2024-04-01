@@ -1,7 +1,7 @@
 import { getDateString } from "../../utilities";
 import "./TaskList.css";
 
-export default function TaskList({ setUpdateId, taskList }) {
+export default function TaskList({ setToUpdateTask, taskList }) {
   return (
     <>
       {taskList.length > 0 && (
@@ -18,7 +18,7 @@ export default function TaskList({ setUpdateId, taskList }) {
               <tr key={task._id}>
                 <td>{task.title}</td>
                 <td>{getDateString(new Date(task.deadline))}</td>
-                <td><button onClick={()=>{setUpdateId(task._id)}} className="btn btn-primary">Update</button></td>
+                <td><button onClick={()=>{setToUpdateTask(task)}} className="btn btn-primary">Update</button></td>
               </tr>
             ))}
           </tbody>
