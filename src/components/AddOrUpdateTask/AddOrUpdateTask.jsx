@@ -8,11 +8,19 @@ export default function AddOrUpdateTask({
   setTaskList,
 }) {
   const isUpdate = toUpdateTask != null;
+  const titleInput = document.getElementById("task-title");
+  const deadlineInput = document.getElementById("task-deadline");
+  //prepopulate form in case of update
+  if(toUpdateTask) {
+    titleInput.value = toUpdateTask.title;
+    deadlineInput.value = getDateString(new Date(toUpdateTask.deadline));
+  }
 
   async function handleUpdate() {
     try {
-      const title = document.getElementById("task-title").value;
-      const deadline = document.getElementById("task-deadline").value;
+      //extract the latest input values
+      title = titleInput.value;
+      deadline = deadlineInput.value;
       let res;
       if (isUpdate) {
         res = await updateTask({ title, deadline, updateId: toUpdateTask._id });
