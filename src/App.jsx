@@ -16,10 +16,7 @@ function App() {
 
   //get the task list from backend
   useEffect(() => {
-    (async () => {
-      const taskList = await getTaskList();
-      setTaskList(taskList);
-    })();
+    getTaskList(setTaskList);
   }, []);
 
   return (
@@ -30,8 +27,8 @@ function App() {
           <Card title="Count">
             <Count />
           </Card>
-          <Card title="Add Task">
-            <AddOrUpdateTask updateId={updateId}/>
+          <Card title={updateId!=null?'Update Task':'Add Task'}>
+            <AddOrUpdateTask updateId={updateId} setTaskList={setTaskList}/>
           </Card>
         </div>
         <div>

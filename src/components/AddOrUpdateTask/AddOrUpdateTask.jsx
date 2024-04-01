@@ -1,3 +1,4 @@
+import { addTask, getTaskList, updateTask } from '../http';
 import './AddOrUpdateTask.css';
 
 function getToday() {
@@ -11,18 +12,33 @@ function getToday() {
   const formattedDate = `${year}-${month}-${day}`;
   return formattedDate;
 }
-export default function AddOrUpdateTask() {
+export default function AddOrUpdateTask({updateId, setTaskList}) {
+  const isUpdate = updateId!=null;
+
+  async function handleClick() {
+    const title = document.getElementById('task-title').value;
+    const deadline = document.getElementById('task-deadline').value;
+    let res;
+    if(isUpdate) {
+      res = await updateTask({title, deadline});
+    } else {
+      res = await addTask({title, deadline, updateId});
+    }
+    if(res.status==200) {
+      getTaskList(setTaskList);
+    }
+  }
   return (
     <>
       <div className="mb-3">
         <label className="form-label">Task Title</label>
-        <input type="text" className="form-control" />
+        <input type="text" className="form-control" id="task-title"/>
       </div>
       <div className="mb-3">
         <label className="form-label">Task Deadline</label>
-        <input type="date" className="form-control" min={getToday()} />
+        <input type="date" className="form-control" min={getToday()} id="task-deadline"/>
       </div>
-      <button className="btn btn-primary">Add</button>
+      <button className="btn btn-primary" onClick={handleClick} type='button'>{isUpdate?"Update":"Add"}</button>
     </>
   );
 }
