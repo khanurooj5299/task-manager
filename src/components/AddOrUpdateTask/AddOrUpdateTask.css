@@ -1,0 +1,11 @@
+.table th, .table td{
+    background-color: var(--background-color-grey);
+}
+
+.table th {
+ color: var(--text-lighter);
+}
+
+.table td {
+color: var(--text-light);
+}

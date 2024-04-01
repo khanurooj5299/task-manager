@@ -1,6 +1,6 @@
 import "./App.css";
 import Count from "./components/Count";
-import AddOrUpdateTask from "./components/AddOrUpdateTask";
+import AddOrUpdateTask from "./components/AddOrUpdateTask/AddOrUpdateTask";
 import TaskList from "./components/TaskList";
 import { Card } from "./components/Card/Card";
 import Header from "./components/Header/Header";

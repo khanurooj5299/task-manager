@@ -2,10 +2,15 @@
     max-width: 800px !important;
     background-color: var(--background-color-grey);
     border-color: var(--border-color);
+    
 }
 
 .card-header {
-    color: var(--text-light);
     border-color: var(--border-color);
     background-color: var(--background-color-light-grey);
+    color: var(--text-lighter);
+}
+
+.card-body {
+    color: var(--text-light);
 }

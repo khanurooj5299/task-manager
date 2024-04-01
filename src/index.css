@@ -6,8 +6,8 @@
   --background-color-light-grey: #55505b;
   --background-color-bright: rgb(255, 255, 255);
   --border-color: #746e7c;
-  --text-light: #fbfbfb;
-  --text-dark: rgba(47, 43, 61, 0.9);
+  --text-lighter: #fbfbfb;
+  --text-light: rgb(222, 226, 230);
 }
 
 html,
