@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-import { getTaskList } from "./http";
+import "./TaskList.css";
 
 export default function TaskList({ onUpdate, taskList }) {
   return (

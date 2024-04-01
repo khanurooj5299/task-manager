@@ -1,7 +1,7 @@
 import "./App.css";
 import Count from "./components/Count";
 import AddOrUpdateTask from "./components/AddOrUpdateTask/AddOrUpdateTask";
-import TaskList from "./components/TaskList";
+import TaskList from "./components/TaskList/TaskList";
 import { Card } from "./components/Card/Card";
 import Header from "./components/Header/Header";
 import { useState, useEffect } from "react";
@@ -31,7 +31,7 @@ function App() {
             <Count />
           </Card>
           <Card title="Add Task">
-            <AddOrUpdateTask />
+            <AddOrUpdateTask updateId={updateId}/>
           </Card>
         </div>
         <div>
