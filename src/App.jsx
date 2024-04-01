@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="d-flex flex-column">
+      <div className="main-container d-flex flex-column">
         <div className="d-flex">
           <Card title="Count">
             <Count />
