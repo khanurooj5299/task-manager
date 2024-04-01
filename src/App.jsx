@@ -33,7 +33,7 @@ function App() {
         </div>
         <div>
           <Card title="Task List">
-            <TaskList onUpdate={setUpdateId} taskList={taskList}/>
+            <TaskList setUpdateId={setUpdateId} taskList={taskList}/>
           </Card>
         </div>
       </div>
