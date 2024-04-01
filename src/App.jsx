@@ -28,7 +28,7 @@ function App() {
             <Count />
           </Card>
           <Card title={updateId!=null?'Update Task':'Add Task'}>
-            <AddOrUpdateTask updateId={updateId} setTaskList={setTaskList}/>
+            <AddOrUpdateTask updateId={updateId} setUpdateId={setUpdateId} setTaskList={setTaskList}/>
           </Card>
         </div>
         <div>
