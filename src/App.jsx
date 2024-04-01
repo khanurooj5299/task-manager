@@ -2,16 +2,23 @@ import "./App.css";
 import Count from "./components/Count";
 import AddOrUpdateTask from "./components/AddOrUpdateTask";
 import TaskList from "./components/TaskList";
+import { Card } from "./components/Card/Card";
 
 function App() {
   return (
     <div className="d-flex flex-column">
       <div className="d-flex">
-        <Count />
-        <AddOrUpdateTask />
+        <Card title="Count">
+          <Count />
+        </Card>
+        <Card title="Add Task">
+          <AddOrUpdateTask />
+        </Card>
       </div>
       <div>
-        <TaskList />
+        <Card title="Task List">
+          <TaskList />
+        </Card>
       </div>
     </div>
   );
