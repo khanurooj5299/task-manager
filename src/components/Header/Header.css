@@ -1,0 +1,16 @@
+.header {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: var(--background-color-dark);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 10px;
+}
+
+.header .logo {
+  background: linear-gradient(to right, rgb(212, 4, 4), rgb(188, 12, 241));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  align-self: flex-start;
+  line-height: 1.1;
+}
