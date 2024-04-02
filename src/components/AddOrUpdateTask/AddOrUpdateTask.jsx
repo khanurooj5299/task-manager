@@ -1,4 +1,4 @@
-import { addTask, getTaskList, updateTask } from "../../http";
+import { addTask, getCount, getTaskList, updateTask } from "../../http";
 import { getDateString } from "../../utilities";
 import "./AddOrUpdateTask.css";
 
@@ -6,6 +6,7 @@ export default function AddOrUpdateTask({
   toUpdateTask,
   setToUpdateTask,
   setTaskList,
+  setCount
 }) {
   const isUpdate = toUpdateTask != null;
   const titleInput = document.getElementById("task-title");
@@ -42,6 +43,8 @@ export default function AddOrUpdateTask({
       }
       //finally reset the form
       document.getElementById("add-update-form").reset();
+      //also update the count 
+      getCount(setCount);
     } catch (err) {
       //handle error
     }
