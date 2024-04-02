@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 
 import Count from "../Count/Count";
 import AddOrUpdateTask from "../AddOrUpdateTask/AddOrUpdateTask";
@@ -22,25 +23,35 @@ export default function MainArea() {
   }, []);
 
   return (
-    <div className="main-container d-flex flex-column">
-      <div className="d-flex">
-        <Card title="Count">
-          <Count count={count} />
-        </Card>
-        <Card title={toUpdateTask != null ? "Update Task" : "Add Task"}>
-          <AddOrUpdateTask
-            toUpdateTask={toUpdateTask}
-            setToUpdateTask={setToUpdateTask}
-            setTaskList={setTaskList}
-            setCount={setCount}
-          />
-        </Card>
-      </div>
-      <div>
+    <PanelGroup direction="vertical">
+      <Panel>
+        <PanelGroup direction="horizontal">
+          <Panel>
+            <Card title="Count">
+              <Count count={count} />
+            </Card>
+          </Panel>
+          <PanelResizeHandle />
+          <Panel>
+            <Card title={toUpdateTask != null ? "Update Task" : "Add Task"}>
+              <AddOrUpdateTask
+                toUpdateTask={toUpdateTask}
+                setToUpdateTask={setToUpdateTask}
+                setTaskList={setTaskList}
+                setCount={setCount}
+              />
+            </Card>
+          </Panel>
+          <PanelResizeHandle />
+        </PanelGroup>
+      </Panel>
+      <PanelResizeHandle />
+      <Panel>
         <Card title="Task List">
           <TaskList setToUpdateTask={setToUpdateTask} taskList={taskList} />
         </Card>
-      </div>
-    </div>
+      </Panel>
+      <PanelResizeHandle />
+    </PanelGroup>
   );
 }
