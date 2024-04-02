@@ -25,7 +25,7 @@ export async function addTask(task) {
 }
 
 export async function updateTask(task) {
-  const res = await fetch(`${apiUrl}/task/update-task/${task.id}`, {
+  const res = await fetch(`${apiUrl}/task/update-task/${task._id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

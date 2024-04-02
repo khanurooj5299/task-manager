@@ -1,4 +1,4 @@
-import { addTask, updateTask } from "../../http";
+import { addTask, getTaskList, updateTask } from "../../http";
 import { getDateString } from "../../utilities";
 import "./AddOrUpdateTask.css";
 
@@ -19,17 +19,23 @@ export default function AddOrUpdateTask({
   async function handleUpdate() {
     try {
       //extract the latest input values
-      title = titleInput.value;
-      deadline = deadlineInput.value;
+      const title = titleInput.value;
+      const deadline = deadlineInput.value;
       let res;
       if (isUpdate) {
-        res = await updateTask({ title, deadline, updateId: toUpdateTask._id });
+        res = await updateTask({ title, deadline, _id: toUpdateTask._id });
+        //the request did succeed but no such document was found in DB
+        if(res.status==404){
+          throw new Error(res.message);
+        }
         //if it was update operation reset the UI to add
         setToUpdateTask(null);
+        //update the taskList
+        getTaskList(setTaskList);
       } else {
         res = await addTask({ title, deadline });
-        //if task was succesfully added the api returns the newly created task
-        //change tasklist state to reflect newly added task
+        // if task was succesfully added the api returns the newly created task
+        // change tasklist state to reflect newly added task
         setTaskList((prevTaskList) => {
           return [res, ...prevTaskList];
         });
