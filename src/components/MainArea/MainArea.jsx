@@ -7,6 +7,7 @@ import TaskList from "../TaskList/TaskList";
 import Card from "../Card/Card";
 
 import { getTaskList } from "../../http";
+import './MainArea.css';
 
 export default function MainArea() {
   //this state maintains the current taskList
@@ -23,16 +24,17 @@ export default function MainArea() {
   }, []);
 
   return (
-    <PanelGroup direction="vertical">
-      <Panel>
-        <PanelGroup direction="horizontal">
-          <Panel>
+    <>
+    <PanelGroup direction="vertical" className="panel-group">
+      <Panel className="Panel" defaultSize={30} minSize={10}>
+        <PanelGroup direction="horizontal" className="panel-group">
+          <Panel className="Panel" defaultSize={30} minSize={10}>
             <Card title="Count">
               <Count count={count} />
             </Card>
           </Panel>
           <PanelResizeHandle />
-          <Panel>
+          <Panel className="Panel" defaultSize={70} minSize={10}>
             <Card title={toUpdateTask != null ? "Update Task" : "Add Task"}>
               <AddOrUpdateTask
                 toUpdateTask={toUpdateTask}
@@ -42,16 +44,15 @@ export default function MainArea() {
               />
             </Card>
           </Panel>
-          <PanelResizeHandle />
         </PanelGroup>
       </Panel>
       <PanelResizeHandle />
-      <Panel>
+      <Panel className="Panel" defaultSize={70} minSize={10}>
         <Card title="Task List">
           <TaskList setToUpdateTask={setToUpdateTask} taskList={taskList} />
         </Card>
       </Panel>
-      <PanelResizeHandle />
     </PanelGroup>
+    </>
   );
 }
