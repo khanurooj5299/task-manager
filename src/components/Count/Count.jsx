@@ -2,7 +2,7 @@ import "./Count.css";
 
 export default function Count({ count }) {
   return (
-    <div className="d-flex flex-column h-100 justify-content-evenly count-container">
+    <div className="d-flex count-container align-items-center">
       <div className="d-flex flex-column">
         Add Count:
         <div className="count-box mt-2">

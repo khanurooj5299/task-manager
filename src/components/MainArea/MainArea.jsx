@@ -26,7 +26,7 @@ export default function MainArea() {
   return (
     <>
     <PanelGroup direction="vertical" className="panel-group">
-      <Panel className="Panel" defaultSize={30} minSize={10}>
+      <Panel className="Panel" defaultSize={50} minSize={10}>
         <PanelGroup direction="horizontal" className="panel-group">
           <Panel className="Panel" defaultSize={30} minSize={10}>
             <Card title="Count">
@@ -47,7 +47,7 @@ export default function MainArea() {
         </PanelGroup>
       </Panel>
       <PanelResizeHandle />
-      <Panel className="Panel" defaultSize={70} minSize={10}>
+      <Panel className="Panel" defaultSize={50} minSize={10}>
         <Card title="Task List">
           <TaskList setToUpdateTask={setToUpdateTask} taskList={taskList} />
         </Card>

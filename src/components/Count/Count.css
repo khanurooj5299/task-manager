@@ -8,17 +8,19 @@
   );
   border-radius: 5px;
   flex-grow: 1;
+  max-height: 120px;
 }
 
 .count-container > * {
-  flex-grow: 1;
+  flex:1 1 0px;
 }
 
 .count-container {
   gap: 5px;
+  height: 100%;
 }
 
 svg {
   height: 100%;
-  font-size: 1rem;
+  width: 100%;
 }
