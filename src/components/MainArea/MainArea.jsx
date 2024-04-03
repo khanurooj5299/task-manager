@@ -6,7 +6,7 @@ import AddOrUpdateTask from "../AddOrUpdateTask/AddOrUpdateTask";
 import TaskList from "../TaskList/TaskList";
 import Card from "../Card/Card";
 
-import { getTaskList } from "../../http";
+import { getCount, getTaskList } from "../../http";
 import './MainArea.css';
 
 export default function MainArea() {
@@ -16,11 +16,12 @@ export default function MainArea() {
   //If null then add mode, otherwise if some task(which is to be updated) present then update mode
   const [toUpdateTask, setToUpdateTask] = useState(null);
   //state to maintain current count for update and add api hits
-  const [count, setCount] = useState({ addCount: 0, updateCount: 0 });
+  const [count, setCount] = useState(null);
 
   //get the task list from backend
   useEffect(() => {
     getTaskList(setTaskList);
+    getCount(setCount);
   }, []);
 
   return (
@@ -30,6 +31,7 @@ export default function MainArea() {
         <PanelGroup direction="horizontal" className="panel-group">
           <Panel className="Panel" defaultSize={30} minSize={10}>
             <Card title="Count">
+              {/* this component displayed the button click count for one session(until the browser is closed) */}
               <Count count={count} />
             </Card>
           </Panel>

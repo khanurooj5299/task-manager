@@ -1,6 +1,14 @@
 import "./Count.css";
 
+// this component displayed the button click count for one session(until the browser is closed)
 export default function Count({ count }) {
+  //for initial render when the api has not been called yet
+  if(!count) {
+    count = {
+      addCount: 0,
+      updateCount: 0
+    }
+  }
   return (
     <div className="d-flex count-container align-items-center">
       <div className="d-flex flex-column">
