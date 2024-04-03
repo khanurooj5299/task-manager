@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3000";
+const apiUrl = "https://task-manager-api-6pa0.onrender.com";
 
 export async function getTaskList(setTaskList) {
   //credentials options is important as this is a cors request and for setting and recieving cookies from cors origin this option is important
