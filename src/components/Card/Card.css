@@ -2,7 +2,6 @@
     height: 100%;
     background-color: var(--background-color-grey);
     border-color: var(--border-color);
-    overflow: auto;
 }
 
 .card-header {
@@ -13,4 +12,5 @@
 
 .card-body {
     color: var(--text-light);
+    overflow: auto;
 }

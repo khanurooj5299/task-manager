@@ -38,3 +38,25 @@ body {
   );
   border: none;
 }
+
+/* scrollbar styling */
+::-webkit-scrollbar-track {
+  background: #0000;
+  cursor: pointer;
+  margin: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: oklch(54.84% .023 304.99);
+    border-radius: 10px;
+    transition: background-color .3s ease
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: oklch(84.01% .009 308.34);
+}
